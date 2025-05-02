@@ -1,54 +1,81 @@
 # GitHub Account Switcher
 
-A simple shell script (`git_switch.sh`) to help you **switch between multiple GitHub accounts** using Git Credential Manager. It:
+A simple shell script to switch between GitHub accounts using Git Credential Manager.  
+The script handles:
 
-- Logs you out of the currently stored GitHub credentials.
-- Logs you into a new GitHub account using a personal access token (PAT).
-- Updates your global Git config with the new username and email.
-
----
-
-## 🛠️ Requirements
-
-- Git Credential Manager (`git-credential-manager`)
-- Git installed
-- Bash (Linux/macOS or Git Bash on Windows)
+- Logging out from the currently stored GitHub credentials.
+- Logging in to a new account using a Personal Access Token (PAT).
+- Updating Git's global `user.name` and `user.email`.
 
 ---
 
-## 🚀 Usage
+## 📁 File
 
-1. **Clone this repository:**
+The script file is named: `git_switch.sh`
+
+> 💡 **Important:**  
+> Duplicate this file for each GitHub account you use.  
+> For example:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/github-account-switcher.git
-cd github-account-switcher
-Duplicate the git_switch.sh script for each GitHub account you want to switch between:
+cp git_switch.sh git_personal.sh
+cp git_switch.sh git_work.sh
+````
 
-bash
-Copy
-Edit
-cp git_switch.sh git_switch_account1.sh
-cp git_switch.sh git_switch_account2.sh
-Open each duplicated script and edit the following variables:
+---
 
-GITHUB_USERNAME
+## 🔧 Requirements
 
-GITHUB_EMAIL
+* [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)
+* Git installed
+* Bash (Linux/macOS or Git Bash on Windows)
 
-GITHUB_TOKEN
+---
 
-Alternatively, you can modify the script to prompt for the token interactively for better security.
+## 🚀 How to Use
 
-Make your script executable:
+1. **Edit the duplicated script file** and fill in the following:
 
-bash
-Copy
-Edit
-chmod +x git_switch_account1.sh
-Run the script to switch accounts:
+```bash
+GITHUB_USERNAME="your-github-username"
+GITHUB_EMAIL="your-email@example.com"
+GITHUB_TOKEN="your-personal-access-token"
+```
 
-bash
-Copy
-Edit
-./git_switch_account1.sh
+Alternatively, use secure prompting:
+
+```bash
+read -sp "Enter your GitHub Personal Access Token: " GITHUB_TOKEN
+```
+
+2. **Make the script executable**:
+
+```bash
+chmod +x git_personal.sh
+```
+
+3. **Run the script** to switch to that GitHub account:
+
+```bash
+./git_personal.sh
+```
+
+---
+
+## 🔐 Security Best Practices
+
+Avoid hardcoding your PAT directly in the script.
+Use the `read -sp` method shown above for secure input.
+
+---
+
+## 📄 License
+
+MIT License
+
+```
+
+---
+
+Let me know if you want to include screenshots, example output, or helper scripts for automation.
+```
