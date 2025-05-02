@@ -59,23 +59,3 @@ chmod +x git_personal.sh
 ```bash
 ./git_personal.sh
 ```
-
----
-
-## 🔐 Security Best Practices
-
-Avoid hardcoding your PAT directly in the script.
-Use the `read -sp` method shown above for secure input.
-
----
-
-## 📄 License
-
-MIT License
-
-```
-
----
-
-Let me know if you want to include screenshots, example output, or helper scripts for automation.
-```
